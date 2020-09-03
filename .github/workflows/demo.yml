@@ -24,8 +24,7 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  test:
-    
+  test:  # <-- can be anything    
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -43,7 +42,7 @@ jobs:
       - uses: actions/checkout@v2
 
       # Runs a single command using the runners shell
-      - name: Run a one-line script
+      - name: "Run a one-line script (${{matrix.puppet.label}})"
         run: "echo Hello, world!  ${{matrix.puppet.label}}"
 
       # Runs a set of commands using the runners shell
