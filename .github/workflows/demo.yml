@@ -32,9 +32,9 @@ jobs:
           - label: "SIMP 6.4/PE 2018.1"
             puppet_version: "5.5"
             ruby_version: "2.4"
-          - label: "SIMP 6.4/PE 2018.1"
-            puppet_version: "5.5"
-            ruby_version: "2.4"
+          - label: "PE 2019.2"
+            puppet_version: "6.10"
+            ruby_version: "2.5"
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
