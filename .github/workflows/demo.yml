@@ -35,8 +35,6 @@ jobs:
           - label: "PE 2019.2"
             puppet_version: "6.10"
             ruby_version: "2.5"
-    defaults:
-
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
