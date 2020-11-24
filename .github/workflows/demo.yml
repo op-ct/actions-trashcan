@@ -67,22 +67,16 @@ jobs:
           script: |
             // See: https://octokit.github.io/rest.js/
             const creator = context.payload.sender.login
-            console.log("========== REPO ==========")
-            console.log(context.repo)
-            
-            console.log("========== REPO OWNER ==========")
-            console.log(context.repo.owner)
-
+            console.log("========== REPO:", context.repo)
+            console.log("========== REPO OWNER: ", context.repo.owner)
             const owner_resp = await github.request("GET /users/:user", {
               user: context.repo.owner,
             });
             const owner = owner_resp.data.type
-            
-            console.log("========== REPO OWNER TYPE ==========")
-            console.log(owner)
+            console.log("========== REPO OWNER TYPE: ", owner)
 
             const membership = github.request("GET /orgs/:org/memberships/:username", {
               org: owner,
               username: creator,
             });
-            console.log(membership)
+            console.log("========== CREATOR MEMBERSHIP: ", membership)
