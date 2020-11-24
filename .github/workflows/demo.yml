@@ -78,10 +78,10 @@ jobs:
             });
             
             console.log("========== REPO OWNER TYPE ==========")
-            console.log(owner.type)
+            console.log(owner)
 
             const membership = github.request("GET /orgs/:org/memberships/:username", {
-              org: org,
+              org: owner,
               username: creator,
             });
             console.log(membership)
