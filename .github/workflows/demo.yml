@@ -70,7 +70,7 @@ jobs:
             console.log("========== REPO ==========")
             console.log(context.repo)
 
-            const org = context.repo.org
+            const org = context.repo.owner
             /*const membership = github.orgs.checkPublicMembership({
               org,
               creator
