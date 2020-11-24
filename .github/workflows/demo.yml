@@ -70,13 +70,12 @@ jobs:
             console.log("========== REPO ==========")
             console.log(context.repo)
 
-            const org = context.repo.owner
-            const org_data = github.request("GET /user/:org", {
-              username: creator,
+            const owner = github.request("GET /user/:user", {
+              user: context.repo.owner,
             });
             
             console.log("========== REPO OWNER TYPE ==========")
-            console.log(org_data.type?)
+            console.log(owner.type)
 
             const membership = github.request("GET /orgs/:org/memberships/:username", {
               org: org,
