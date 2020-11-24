@@ -71,10 +71,13 @@ jobs:
             console.log(context.repo)
 
             const org = context.repo.owner
-            /*const membership = github.orgs.checkPublicMembership({
-              org,
-              creator
-            });*/
+            const org_data = github.request("GET /user/:org", {
+              username: creator,
+            });
+            
+            console.log("========== REPO OWNER TYPE ==========")
+            console.log(org_data.type?)
+
             const membership = github.request("GET /orgs/:org/memberships/:username", {
               org: org,
               username: creator,
