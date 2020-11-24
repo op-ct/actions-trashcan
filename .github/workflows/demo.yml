@@ -73,9 +73,10 @@ jobs:
             console.log("========== REPO OWNER ==========")
             console.log(context.repo.owner)
 
-            const owner = await github.request("GET /users/:user", {
+            const owner_resp = await github.request("GET /users/:user", {
               user: context.repo.owner,
             });
+            const owner = owner.data.type
             
             console.log("========== REPO OWNER TYPE ==========")
             console.log(owner)
