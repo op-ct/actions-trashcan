@@ -73,7 +73,7 @@ jobs:
             console.log("========== REPO OWNER ==========")
             console.log(context.repo.owner)
 
-            const owner = github.request("GET /user/:user", {
+            const owner = github.request("GET /users/:user", {
               user: context.repo.owner,
             });
             
