@@ -67,6 +67,9 @@ jobs:
           script: |
             // See: https://octokit.github.io/rest.js/
             const creator = context.payload.sender.login
+            console.log("========== REPO ==========")
+            console.log(context.repo)
+
             const org = context.repo.org
             /*const membership = github.orgs.checkPublicMembership({
               org,
