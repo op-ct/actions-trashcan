@@ -68,8 +68,12 @@ jobs:
             // See: https://octokit.github.io/rest.js/
             const creator = context.payload.sender.login
             const org = context.repo.org
-            const membership = github.orgs.checkPublicMembership({
+            /*const membership = github.orgs.checkPublicMembership({
               org,
               creator
+            });*/
+            const membership = github.request("GET /orgs/:org/memberships/:username", {
+              org: org,
+              username: creator,
             });
             console.log(membership)
