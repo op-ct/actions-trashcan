@@ -72,11 +72,19 @@ jobs:
             const owner_resp = await github.request("GET /users/:user", {
               user: context.repo.owner,
             });
-            const owner = owner_resp.data.type
-            console.log("========== REPO OWNER TYPE: ", owner)
+            const owner_type = owner_resp.data.type
+            console.log("========== REPO OWNER TYPE: ", owner_type)
 
-            const membership = github.request("GET /orgs/:org/memberships/:username", {
-              org: owner,
-              username: creator,
-            });
+            if( owner_type == 'User' ){
+              const membership = await github.request("GET /repos/:owner/:repo/collaborators/:username", {
+                owner: context.repo.owner,
+                repo:  context.repo.repo,
+                username: creator,
+              });            
+            } else {
+              const membership = await github.request("GET /orgs/:org/memberships/:username", {
+                org: owner,
+                username: creator,
+              });
+            }
             console.log("========== CREATOR MEMBERSHIP: ", membership)
